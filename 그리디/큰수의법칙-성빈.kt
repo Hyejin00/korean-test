@@ -1,4 +1,4 @@
-fun main() {
+fun main() { // 더 짧게 안되나...
     val nmk = readLine()!!.split(" ").map { it.toInt() }
     val nums = readLine()!!.split(" ").map { it.toInt() }.sortedDescending()
 
