@@ -1,16 +1,18 @@
 fun main() { // 더 짧게 안되나...
-    val nmk = readLine()!!.split(" ").map { it.toInt() }
-    val nums = readLine()!!.split(" ").map { it.toInt() }.sortedDescending()
+    val (n, m, k) = readLine()!!.split(" ").map { it.toInt() }
+    val (first, second) = readLine()!!.split(" ")
+        .map { it.toInt() }
+        .sortedDescending()
 
     var result = 0
     var index = 0
 
-    repeat(nmk[1]) {
-        if (index < nmk[2]) {
-            result += nums.first()
+    repeat(m) {
+        if (index < k) {
+            result += first
             index++
         } else {
-            result += nums[1]
+            result += second
             index = 0
         }
     }
