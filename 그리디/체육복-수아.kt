@@ -18,7 +18,7 @@ class Solution {
                 return@forEach
             }
 
-            if(this.canBarrow(number - 1, n, lostSet, reserveSet) || this.canBarrow(number + 1, n, lostSet, reserveSet)){
+            if(this.canBorrow(number - 1, n, lostSet, reserveSet) || this.canBorrow(number + 1, n, lostSet, reserveSet)){
                 answer++
                 return@forEach
             }
@@ -26,17 +26,17 @@ class Solution {
         return answer
     }
 
-    fun canBarrow(number: Int, n: Int, lost: MutableSet<Int>, reserve: MutableSet<Int>): Boolean{
+    fun canBorrow(number: Int, n: Int, lost: Set<Int>, reserve: MutableSet<Int>): Boolean{
         if(number <= 0 || number > n){
             return false
         }
 
         val hasReserve = reserve.contains(number)
         val hasLost = lost.contains(number)
-        val canBarrow = !hasLost && hasReserve
-        if(canBarrow){
+        val canBorrow = !hasLost && hasReserve
+        if(canBorrow){
             reserve.remove(number)
         }
-        return canBarrow
+        return canBorrow
     }
 }
