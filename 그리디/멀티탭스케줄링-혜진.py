@@ -1,13 +1,14 @@
-#틀림
 n, k = map(int, input().split())
 a = list(map(int, input().split()))
-plug = [a[i] for i in range(n)]
+plug = []
 ans = 0
-for i in range(n, len(a)):
+for i in range(len(a)):
   if a[i] in plug:
     continue
+  elif len(plug) < n:
+    plug.append(a[i])
   else:
-    rank = [101]*n
+    rank = [101] * len(plug)
     for j in range(n):
       if plug[j] in a[i:]:
         rank[j] = a[i:].index(plug[j])
